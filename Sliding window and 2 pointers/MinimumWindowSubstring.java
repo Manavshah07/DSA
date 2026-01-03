@@ -1,6 +1,6 @@
 import java.util.*;
 
-// BRUTE FORCE: TIME COMPLEXITY:- O(N^3) & SPACE COMPLEXITY:- O(1)
+// BRUTE FORCE: TIME COMPLEXITY:- O(N^3) & SPACE COMPLEXITY:- O(1) AS ALPHABET SIZE IS FIXED
 class Solution {
     public String minWindow(String s, String t) {
         int ans = Integer.MAX_VALUE;
