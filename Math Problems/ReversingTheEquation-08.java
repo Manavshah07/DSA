@@ -3,6 +3,7 @@
 // https://www.geeksforgeeks.org/problems/reversing-the-equation2205/1
 
 // User function Template for Java
+// TIME COMPLEXITY:- O(N) - EACH CHARACTER IS VISITED ONCE & SPACE COMPLEXITY:- O(N) - FOR THE OUTPUT STRING
 class Solution {
     String reverseEqn(String S) {
         // your code here
