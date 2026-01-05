@@ -23,13 +23,17 @@ class Solution {
 
 // Time Complexity: O(1)
 // Space Complexity: O(1)
-public int addDigits(int num) {
-    // WE HAVE DID num >=10 BECAUSE IF DIGIT IS MORE THAN ONE THEN ONLY DO
-    // CALCUATIONS
-    // special case
-    if (num == 0)
-        return 0;
+// public int addDigits(int num) {
+// // WE HAVE DID num >=10 BECAUSE IF DIGIT IS MORE THAN ONE THEN ONLY DO
+// // CALCUATIONS
+// // special case
+// if (num == 0)
+// return 0;
 
-    // digital root formula
-    return 1 + (num - 1) % 9;
-}
+// // digital root formula
+// Digital root means final single digit you get after adding digits again and
+// again.
+// WE DID num - 1 because if my num is 9, 18, or 27 then it will give me 0 and
+// we want 9 so for that reason we did num - 1
+// return 1 + (num - 1) % 9;
+// }
