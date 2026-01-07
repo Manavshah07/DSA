@@ -1,4 +1,6 @@
 // Question Link:- https://www.geeksforgeeks.org/problems/key-pair5616/1 
+
+// BRUTE FORCE APPROACH:- TIME COMPLEXITY: O(N^2) & SPACE COMPLEXITY: O(1) AS NO EXTRA SPACE HAS BEEN USED
 class Solution {
     boolean twoSum(int arr[], int target) {
         // code here
@@ -12,3 +14,5 @@ class Solution {
         return false;
     }
 }
+
+// OPTIMAL APPROACH
