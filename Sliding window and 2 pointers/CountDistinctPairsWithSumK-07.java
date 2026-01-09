@@ -26,3 +26,5 @@ class Solution {
         return set.size();
     }
 }
+
+// OPTIMAL APPROACH:-
