@@ -27,4 +27,37 @@ class Solution {
     }
 }
 
-// OPTIMAL APPROACH:-
+// OPTIMAL APPROACH WITH TIME COMPLEXITY AS O(N) AND SPACE COMPLEXITY AS O(N)
+// User function Template for Java
+// class Solution {
+// public int TotalPairs(int[] nums, int k) {
+// // Code here
+// // This will store numbers we have already visited in the array
+// // Purpose: fast lookup (O(1)) to check existence
+// Set<Integer> seen = new HashSet<>();
+
+// // It stores the distinct pairs in string format like "1, 3" and it avoid
+// // counting duplicates"
+// Set<String> result = new HashSet<>();
+// for (int x : nums) {
+// // HERE WE ARE CHECKING THAT X-K CONTAINS IN HASHSET OR NOT IF IT CONTAINS
+// THEN
+// // WE ARE STORING IN RESULT AS A PAIR. IF NOT THEN WE ARE STORING THE NUMBER
+// IN
+// // HASHSET
+// if (seen.contains(x - k)) {
+// int a = x - k;
+// int b = x;
+// result.add(a + "," + b);
+// }
+
+// if (seen.contains(x + k)) {
+// int a = x;
+// int b = x + k;
+// result.add(a + "," + b);
+// }
+// seen.add(x);
+// }
+// return result.size();
+// }
+// }
