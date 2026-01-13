@@ -1,3 +1,5 @@
+// QUestion Link:- https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards 
+
 // arr = [6  2  3  4  7  2  1  7  1]   K = 4
 // Here what we need to do is we need to pick the element such that the length of the element should be equal to k and their sum should be maximum
 // In the above eg if we can pick 4 element from start and store their sum in a variable sum.
