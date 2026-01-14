@@ -6,7 +6,7 @@ import java.util.*;
 class Solution {
     public int TotalPairs(int[] nums, int k) {
         // Code here
-        int count = 0;
+        // int count = 0;
         // HERE WE ARE STORING AS A PAIR IN A HASHSET AND INTEGER ONLY STORES THE SINGLE
         // VALUE, BUT STRING CAN STORES MULTIPLE VALUE AS "5:3" OR "3:5" SO THATS THE
         // REASON WE USED STRING
