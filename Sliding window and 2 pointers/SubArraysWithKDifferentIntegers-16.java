@@ -23,3 +23,35 @@ class Solution {
         return count;
     }
 }
+
+// OPTIMAL APPROACH WITH TIME COMPLEXITY OF O(N) AND SPACE COMPLEXITY OF O(N)
+// class Solution {
+// public int subarraysWithKDistinct(int[] nums, int k) {
+// // HERE IF WE DO ATMOST(K) - ATMOST(K-1) THEN WE GET ATMOST(K) DISTINCT VALUE
+// return atMostK(nums, k) - atMostK(nums, k - 1);
+// }
+
+// private int atMostK(int[] nums, int k) {
+// int n = nums.length;
+// int i = 0, j = 0, count = 0;
+// HashMap<Integer, Integer> hmap = new HashMap<>();
+// while(j < n) {
+// // ADDING ELEMENTS INTO THE HASHMAP
+// hmap.put(nums[j], hmap.getOrDefault(nums[j], 0) + 1);
+
+// // IF MAP SIZE IS GREATER THAN K
+// while(hmap.size() > k) {
+// // IF THE COUNT OF NUMBER IS GREATER THAN 1, THEN WE ARE REDUCING THE COUNT
+// OF THAT NUMBER ELSE WE ARE REMOVING THAT NUMBER
+// if(hmap.get(nums[i]) > 1)
+// hmap.put(nums[i], hmap.get(nums[i]) - 1);
+// else
+// hmap.remove(nums[i]);
+// i++;
+// }
+// j++;
+// count = count + (j-i+1);
+// }
+// return count;
+// }
+// }
