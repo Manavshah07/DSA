@@ -42,3 +42,5 @@ class Solution {
         return s.substring(startIndex, startIndex + minLength);
     }
 }
+
+// OPTIMISED APPROACH
