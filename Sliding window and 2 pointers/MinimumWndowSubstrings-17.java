@@ -10,7 +10,8 @@ class Solution {
 
         for (int i = 0; i < n; i++) {
 
-            int[] hash = new int[256]; // initialize array with 0
+            // initialize array with 0
+            int[] hash = new int[256];
             int count = 0;
 
             // fill frequency for t
@@ -22,11 +23,24 @@ class Solution {
             for (int j = i; j < n; j++) {
                 char ch = s.charAt(j);
 
+                // HERE IN MY HASH CHARACTER, THE CHARACTER WHICH WE FOUND IN CH IS REQUIRED OR
+                // NOT. IF ITS FREQUENCY IS 1 THEN WE REQUIRED THAT CHARACTER SO WE INCREASE THE
+                // COUNT
                 if (hash[ch] > 0) {
                     count++;
                 }
+                // HERE WE JUST USED ONE OCCURENCE OF THE CHARACTER
                 hash[ch]--;
+                /**
+                 * Before:
+                 * hash['A'] = 1
+                 * 
+                 * After seeing A:
+                 * hash['A'] = 0
+                 */
 
+                // CHECKING THAT MY COUNT HAS SAME CHARACTER WHICH IS THEIR IN T IF IT IS THEIR
+                // THEN WE ARE CALCULATING THE MINIMUM LENGTH
                 if (count == m) {
                     if (j - i + 1 < minLength) {
                         minLength = j - i + 1;
