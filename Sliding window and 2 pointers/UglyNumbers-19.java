@@ -1,1 +1,0 @@
-// Question Link:- https://practice.geeksforgeeks.org/problems/ugly-numbers/0

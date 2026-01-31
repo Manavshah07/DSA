@@ -1,0 +1,35 @@
+What is Stack?
+- Stack is a nothing but a Data Structure that holds certain type of data(i.e. it can be integer, pair, double, long, character, string, customised type). It follows the LIFO(Last In First Out) Mechanism.
+Stack provides with 4 different functions:-
+push():- It can be also said as add functions. Push a certain value like integer, pair, double, long or customised type as well.
+pop():- It always removes out the last element
+top():- It helps us to give the top most element in the data structure
+size():- It helps us to give the size of the data structure i.e. how many elements are present in the data structure
+
+Eg:-
+push(2)
+push(3)
+push(4)
+push(1)
+pop
+top
+top
+pop
+push(5)
+top
+size
+                    2  3  4  1
+
+What is Queue?
+
+Implement Stack Using Arrays
+
+Implement Queue using Arrays
+
+Implement Stack using Linkedlist
+
+Implement Queue using Linkedlist
+
+Implement Stack using Queue
+
+Implement Queue using Stack
