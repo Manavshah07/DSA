@@ -2,8 +2,8 @@ What is Stack?
 - Stack is a nothing but a Data Structure that holds certain type of data(i.e. it can be integer, pair, double, long, character, string, customised type). It follows the LIFO(Last In First Out) Mechanism.
 Stack provides with 4 different functions:-
 push():- It can be also said as add functions. Push a certain value like integer, pair, double, long or customised type as well.
-pop():- It always removes out the last element
-top():- It helps us to give the top most element in the data structure
+pop():- It always removes out the last or latest element
+top():- It helps us to give the top most element in the data structure here top most element will be the element which is inserted Last
 size():- It helps us to give the size of the data structure i.e. how many elements are present in the data structure
 
 Eg:-
@@ -19,10 +19,115 @@ push(5)
 top
 size
                     2  3  4  1
+pop the element 1
+                    2  3  4
+top will give me 4
+top will again give 4
+pop the element 4
+                    2  3
+push the element 5
+                    2  3  5
+top will give 5
+the size of stack is 3
+
+Their is a inbuilt stack provided in every language 
+Stack<Int> st --> It is stack created which is storing int variable and the st is the variable name.
+st.push(6)
+st.pop()
+st.top()
+st.size()
+
 
 What is Queue?
+Queue follows the FIFO(First In First Out) mechanism. Queue is a similar data structure that allows you to hold certain type of data that can be integer, pair, double, long, character, string, customised type.
+It gives some operations:- 
+push():- We can push a certain value into the queue.
+pop():- It always removes the first or oldest element 
+top():- It helps us to give the top most element in the data structure here top most element will be the element which is inserted First
+size():- It helps us to give the size of the Queue
 
-Implement Stack Using Arrays
+push(2)
+push(1)
+push(3)
+push(4)
+pop
+top
+pop
+top
+push(7)
+top
+size
+                2  1  3  4
+pop the element 2
+                   1  3  4
+top will give me element 1
+pop the element 1
+                      3  4
+top will give me element 3
+push the element 7
+                   3  4  7
+top will give me element 3
+size of the Queue is 3 
+
+Their is a inbuilt Queue provided in every language 
+Queue<Int> qu --> It is Queue created which is storing int variable and the qu is the variable name.
+qu.push(6)
+qu.pop()
+qu.top()
+qu.size()
+
+
+Implement Stack Using Arrays?
+Here for Implement stack using arrays we need size, In order to define array we need size that how many element at max we will be storing for this implementation a size has to be known, as size cannot be dynamic in nature. It should have a constant size.
+
+size = 10
+int st[10] // Here we have created a stack st of size 10
+top = -1 // IF MY STACK IS EMPTY THEN BY DEFAULT MY TOP WILL BE -1 AND TOP HELPS US TO DETERMINE WHAT ELEMENTS ARE THEIR IN THE STACK
+push(4) // IN MY ARRAY THEIR WILL BE ELEMENT 4
+// AS WE PUSH ELEMENT 4 SO MY TOP WILL ALSO MOVE TO 4
+pop() // WE WILL BE REMOVING ELEMENT 4
+top() // HERE MY TOP WILL BE AGAIN -1 AS WE HAVE REMOVED 4
+push(5) // IN MY ARRAY THEIR WILL BE ELEMENT 5 AND TOP WILL BE AT 5
+push(6) // IN MY ARRAY THEIR WILL BE ELEMENT 5 6 AND TOP WILL BE AT 6
+push(10) // IN MY ARRAY THEIR WILL BE ELEMENT 5 6 10 AND TOP WILL BE AT 10
+size() // TOP WILL POINT AT INDEX 2 AND MY SIZE WILL BE TOP + 1 = 2 + 1 = 3
+st[top] --> IT WILL GIVE ME THE TOP
+
+CODE / IMPLEMENTATION:-
+class StackImplementation{
+    int top = -1, int st[10];
+    // IT IS DONE IN O(1)
+    push(x) {
+        if(top >= 10)
+            print("size exceeded");
+        top = top + 1; // HERE MY TOP MOVES TO NEXT POSITION AS I NEED TO STORE THE VALUE
+        st[top] = x; // HERE IT STORES THE VALUE AT THE TOP POSITION
+    }
+
+    // HERE WE NEED TO RETURN AS AN INT THATS WHY WE WROTE RETURN TYPE AS INT
+    // IT IS DONE IN O(1)
+    int top() {
+        if(top == -1)
+            print("Stack is empty");
+        return st[top]; // HERE IT WILL JUST GIVE ME THE LATEST ELEMENT 
+    }
+
+    // IT IS DONE IN O(1)
+    pop() {
+        if(top == -1)
+            print("nothing to delete, as stack is empty);
+        top = top - 1; // AS WE ARE JUST SUBTRACTING THE TOP THEN IT MEANS THAT WE ARE REMOVING THE ELEMENT
+    }
+
+    // IT IS DONE IN O(1)
+    size() {
+        IF TOP is -1 THEN IT WILL RETURN SIZE AS 0
+        return top + 1; // IT WILL RETURN THE SIZE OF THE STACK
+    }
+}
+
+TIME COMPLEXITY:- O(1)
+SPACE COMPLEXITY:- O(10) AS WE DECLARED THE SIZE OF 10 IF WE DON"T USE THE WHOLE SIZE 10 BUT STILL SPACE WILL BE SIZE 10 AND THIS IS MAIN DISADVANTAGE WITH ARRAY AS WE NEED CONSTANT SIZE  
 
 Implement Queue using Arrays
 
