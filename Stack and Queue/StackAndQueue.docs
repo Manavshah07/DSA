@@ -178,7 +178,7 @@ start = 2, end = 3, currentSize = 2
 push(3)
 here before push 3 my array size is already full but starting 2 elements are empty so we can push next element their so we can place it at the front.
                 3      4  2
-start = end = (end + 1)%size = (3 + 1)% 4 = 4 % 4 = 0 currentSize = 3
+start = 2 end = (end + 1)%size = (3 + 1)% 4 = 4 % 4 = 0 currentSize = 3
 pop()
                 3      4
 start = (index = 3)(element = 2) end = (index = 0)(element = 3) currentSize = 2
@@ -192,6 +192,7 @@ CODE / IMPLEMENTATION:-
 class Q {
     size = 10, int q[size], start = -1, end = -1, currentSize = 0
 
+    // IT IS WORKING FOR O(1)
     push(x) {
         // HERE WE WILL NOT BE ABLE TO PUSH ANY ELEMENT AS CURRENTSIZE HAS REACHED MAXIMUM LIMIT i.e. QUEUE HAS BEEN FULL
         if(currentSize == size)
@@ -210,6 +211,39 @@ class Q {
         // AS ELEMENT HAS BEEN INSERTED SO WE ARE INCREMENTING CURRENTSIZE OF THE QUEUE
         currentSize += 1;
     }
+
+    // IT IS WORKING FOR O(1)
+    pop() {
+        // HERE IT MEANS THAT I HAVE NO ELEMENTS INSIDE THE QUEUE
+        if(currentSize == 0)
+            print("Queue is empty");
+
+
+        element = q[start] // I NEED TO REMOVE THE FIRST INSERTED ELEMENT THAT WHY I HAVE WRRITTEN q[start]
+        // HERE AS WE HAVE ONLY ONE ELEMENT SO IF WE REMOVE THAT THEN WE WILL DESTROY THE QUEUE FOR DESTROYING JUST POINT START AND END TO -1
+        if(currentSize == 1)
+            start = end = -1;
+        else
+            // HERE AS WE REMOVE THE ELMENTS FROM START SO AFTER REMOVAL MY START MOVES TO NEXT ELEMENT  
+            start = (start + 1)%size;
+        // AS WE REMOVE THE ELEMENT AFTER THAT WE REDUCE THE SIZE OF THE QUEUE
+        currentSize = currentSize - 1;
+        return element;
+    }
+    
+    // IT IS WORKING FOR O(1)
+    top() {
+        if(currentSize == 0)
+            print("Their is no element present in queue");
+        return q[start];
+    }
+
+    // IT IS WORKING FOR O(1)
+    size() {
+        return currentSize;
+    }
+    TIME COMPLEXITY IS O(1)
+    SPACE COMPLEXITY IS O(10) AS SIZE NEEDS TO BE ALREADY FIXED IN ARRAY
 }
 
 
