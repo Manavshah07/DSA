@@ -77,7 +77,8 @@ qu.top()
 qu.size()
 
 
-Implement Stack Using Arrays?
+
+Implement Stack Using Arrays:-
 Here for Implement stack using arrays we need size, In order to define array we need size that how many element at max we will be storing for this implementation a size has to be known, as size cannot be dynamic in nature. It should have a constant size.
 
 size = 10
@@ -129,7 +130,88 @@ class StackImplementation{
 TIME COMPLEXITY:- O(1)
 SPACE COMPLEXITY:- O(10) AS WE DECLARED THE SIZE OF 10 IF WE DON"T USE THE WHOLE SIZE 10 BUT STILL SPACE WILL BE SIZE 10 AND THIS IS MAIN DISADVANTAGE WITH ARRAY AS WE NEED CONSTANT SIZE  
 
-Implement Queue using Arrays
+
+
+Implement Queue using Arrays:-
+As we are using Arrays, the size of array cannot be dynamic in nature. size should be fixed.
+size = 4
+int Q[4]
+currentSize = 0 // IT WILL HELP US TO KEEP THE TRACK OF HOW MANY ELEMENTS YOU HAVE IN A QUEUE DATA STRUCTURE
+start = -1, end = -1 (as it follows FIFO operations hence we required couple of pointers)
+push(3)
+push(2)
+push(4)
+top()
+pop()
+pop()
+push(2)
+push(3)
+pop()
+pop()
+
+here before pushing element we need to check that the what is the currentSize like still i have capacity to store the element and second thing is where are my start and end pointing
+push(3)
+                3
+push the element 3 in the Queue
+start = 0, end = 0, currentSize = 1
+push(2)
+                3  2
+push the element 2 in the Queue
+here my start doesn't moves but only my end moves
+start = 0, end = 1, currentSize = 2
+push(4)
+                3  2  4
+push the element 4 in the Queue
+start = 0, end = 2, currentSize = 3
+top() - top will return 3
+For returning top most element whatever will be stored at start that will be your top most element 
+pop()
+For doing pop first we check the currentSize is greater than 0 means it have some elements
+                    2  4
+start = start + 1 = 0 + 1 = 1, end = 2, currentSize = 2
+pop()
+                       4
+start = 2, end = 2, currentSize = 1
+push(2)
+                       4  2
+start = 2, end = 3, currentSize = 2
+push(3)
+here before push 3 my array size is already full but starting 2 elements are empty so we can push next element their so we can place it at the front.
+                3      4  2
+start = end = (end + 1)%size = (3 + 1)% 4 = 4 % 4 = 0 currentSize = 3
+pop()
+                3      4
+start = (index = 3)(element = 2) end = (index = 0)(element = 3) currentSize = 2
+pop() 
+                3
+start = (index = 0)(element = 3) end = (index = 0)(element = 3) currentSize = 1
+
+if i am destroying the queue then bring start = -1 , end = -1 and currentSize = 0
+
+CODE / IMPLEMENTATION:-
+class Q {
+    size = 10, int q[size], start = -1, end = -1, currentSize = 0
+
+    push(x) {
+        // HERE WE WILL NOT BE ABLE TO PUSH ANY ELEMENT AS CURRENTSIZE HAS REACHED MAXIMUM LIMIT i.e. QUEUE HAS BEEN FULL
+        if(currentSize == size)
+            print("size has been exceeded");
+        
+        // IF QUEUE IS EMPTY THEN FIRST WE ARE SETTING OUR START AND END TO 0 AS WE NEED TO PUSH THE ELEMENT 
+        if(currentSize == 0) {
+            start = 0, end = 0;
+        } else {
+            // IF THEIR IS ALREADY A ELEMENT IN THE QUEUE THEN WE ARE MOVING END TO THE NEXT POSITION 
+            // % size is makes the queue circular
+            end = (end + 1) % size;
+        }
+        // HERE WE ARE STORING THE NEW VALUE INSIDE THE QUEUE AND END TELLS US THAT WHERE THE NEXT ELEMENT HAS TO BE INSERTED
+        q[end] = x;
+        // AS ELEMENT HAS BEEN INSERTED SO WE ARE INCREMENTING CURRENTSIZE OF THE QUEUE
+        currentSize += 1;
+    }
+}
+
 
 Implement Stack using Linkedlist
 
