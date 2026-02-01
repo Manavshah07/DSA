@@ -258,6 +258,53 @@ pop
 push(7)
 size
 
+At start top will point to NULL
+
+push(4)
+Here we will push the element 4 into the node and top will be element 4
+                4 
+push(2)
+Here we will push the element 2 into the node and top will be element 2 
+ALSO MAKE SURE THAT ELEMENT 2 IS POIINTING TOWARDS ELEMENT 4
+                4 <-- 2
+push(3)
+Here we will push the element 3 into the node and top will be element 3 
+ALSO MAKE SURE THAT ELEMENT 3 IS POIINTING TOWARDS ELEMENT 2
+                4 <-- 2 <-- 3
+push(1)
+Here we will push the element 1 into the node and top will be element 1 
+ALSO MAKE SURE THAT ELEMENT 1 IS POIINTING TOWARDS ELEMENT 3
+                4 <-- 2 <-- 3 <-- 1
+top()
+top = 1
+pop() 
+temp = top // THE ELEMENT WHERE TOP IS STANDING i.e element 1 SO MY TEMP WILL BE ELEMENT 1
+top = top -> next // HERE IT WILL MOVE THE TOP TO NEXT POSITION i.e MY TOP = 3
+delete temp // IT WILL REMOVE THE TEMP i.e ELEMENT 1
+                4 <-- 2 <-- 3
+push(7)
+Here we will push the element 7 into the node and top will be element 7 
+ALSO MAKE SURE THAT ELEMENT 7 IS POIINTING TOWARDS ELEMENT 3
+                4 <-- 2 <-- 3 <-- 7
+size()
+size = 4
+
+
+CODE / IMPLEMENTATION:-
+class Solution {
+    size = 0, Node top; // IF WE DON'T ASSIGN ANYTHING THEN IT WILL BE NULL
+    
+    push(x) {
+        Node temp = new Node(x); // A new node is created here with name as temp and value as x
+        temp -> next = top; // Here we are adding a new element in the temp
+        top = temp; // Here my top will point to the new element
+        size += 1; // Here we will increase the size of the stack
+    }
+
+    
+}
+
+
 
 Implement Queue using Linkedlist
 
