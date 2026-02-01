@@ -326,6 +326,108 @@ class Solution {
 
 
 Implement Queue using Linkedlist
+Intially start and end both will point to the NULL
+size = 0 (It keeps the track of size of Queue)
+
+push(7)
+push(2)
+push(3)
+push(5)
+pop()
+top()
+pop()
+pop()
+top()
+
+push(7)
+Here we will push the element 4 into the node
+start and end will point to this node start = 7 and end = 7
+size = 1
+            7
+
+push(2)
+Here we will push the element 2 into the node
+Start will be pointing to first node i.e. start = 7 and end will be pointing to next node i.e. end = 2
+size = 2
+            7  2
+
+push(3)
+Here we will push the element 3 into the node
+Start will be pointing to first node i.e. start = 7 and end will be pointing to next node i.e. end = 3
+            7  2  3
+size = 3
+
+push(5)
+Here we will push the element 5 into the node
+Start will be pointing to first node i.e. start = 7 and end will be pointing to next node i.e. end = 5
+            7  2  3  5
+size = 4
+
+pop()
+temp = start // THE ELEMENT WHERE START IS STANDING i.e element 7 SO MY TEMP WILL BE ELEMENT 7 
+start = start -> next // HERE IT WILL MOVE THE START TO NEXT POSITION i.e MY START = 2
+delete temp // IT WILL REMOVE THE TEMP i.e ELEMENT 7
+               2  3  5
+
+top()
+Here top = start which is my element 2
+
+pop()
+Here for pop we will again follow the same procedure
+                  3  5
+
+pop()
+Here for pop we will again follow the same procedure
+                     5
+
+top()
+Here top = start which is element 5
+
+CODE / IMPLEMENTATION:-
+class Solution {
+    Node start, end; // BOTH WILL BE POINTING TOWARDS NULL
+    size = 0
+
+    // IT IS WORKING FOR O(1)
+    push(x) {
+        Node temp = new Node(x); // CREATING A NODE WITH THE NAME TEMP AND ASSIGNING THE VALUE AS x
+        if(start == NULL) {
+            // HERE WE ARE ADDING THE ELEMENT SO WE WILL MOVE START AND END TO THE FIRST NODE i.E FIRST ELEMENT OF THE TEMP
+            start = end = temp;
+        } else {
+            // IF ELEMENT IS ALREADY THEIR AND WE ARE ADDING ANOTHER ELEMENT SO WE WILL JUST MOVE THE END TO THE NEXT POINTER OR NEXT ELEMENT
+            end -> next = temp;
+        }
+        size += 1; // AFTER PUSHING THE ELEMENT WE ARE INCREASING THE SIZE OF LINKEDLIST 
+    }
+
+    // IT IS WORKING FOR O(1)
+    pop() {
+        if(start == NULL) {
+            print("Here we don't have any element");
+        }
+        temp = start; // HERE WE ARE STORING THE ELEMENT WHICH IS THEIR IN START INTO THE TEMP
+        start = start -> next; // AFTER STORING INTO THE TEMP WE MOVE START TO THE NEXT ELEMENT 
+        delete temp; // AFTER MOVING START WE DESTROY THE TEMP NODE
+        size = size - 1; // AFTER DESTROYING WE WILL REDUCE THE SIZE OF LINKEDLIST
+    }
+
+    // IT IS WORKING FOR O(1)
+    top() {
+        if(start == NULL) {
+            print("Here we don't have any element");
+        }
+        return start -> data; // It will return the value stored in that node or the data
+    }
+
+    // IT IS WORKING FOR O(1)
+    size() {
+        return size; // IT WILL RETURN THE SIZE OF THE STACK
+    }
+    TIME COMPLEXITY is O(1) 
+    SPACE COMPLEXITY IF WE GIVE 3 ELEMENT THEN IT WILL CONSUME 3 SPACE
+}
+
 
 Implement Stack using Queue
 
