@@ -248,6 +248,16 @@ class Q {
 
 
 Implement Stack using Linkedlist
+Here In Linkedlist the size can be dynamic in nature
+push(4)
+push(2)
+push(3)
+push(1)
+top
+pop
+push(7)
+size
+
 
 Implement Queue using Linkedlist
 
