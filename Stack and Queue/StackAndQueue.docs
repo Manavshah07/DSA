@@ -294,6 +294,7 @@ CODE / IMPLEMENTATION:-
 class Solution {
     size = 0, Node top; // IF WE DON'T ASSIGN ANYTHING THEN IT WILL BE NULL
     
+    // IT IS WORKING FOR O(1)
     push(x) {
         Node temp = new Node(x); // A new node is created here with name as temp and value as x
         temp -> next = top; // Here we are adding a new element in the temp
@@ -301,7 +302,26 @@ class Solution {
         size += 1; // Here we will increase the size of the stack
     }
 
-    
+    // IT IS WORKING FOR O(1)
+    pop() {
+        Node temp = top; // the element where top is standing will now point to temp
+        top = top -> next; // here we are pointing the top to the next element
+        delete temp; //here it will remove the element which we pointed to the temp
+        size = size - 1; // here we are decreasing the size of stack as we have removed one element
+    }
+
+    // IT IS WORKING FOR O(1)
+    top() {
+        return top -> data; // It will return the value stored in that node or the data 
+    }
+
+    // IT IS WORKING FOR O(1)
+    size() {
+        return size; // IT WILL RETURN THE SIZE OF THE STACK
+    }
+    TIME COMPLEXITY is O(1) 
+    SPACE COMPLEXITY IF WE GIVE 3 ELEMENT THEN IT WILL CONSUME 3 SPACE
+
 }
 
 
