@@ -491,6 +491,7 @@ CODE/IMPLEMENTATION:-
 Class Solution {
     queue<int> q; // HERE I HAVE DEFINED A QUEUE DS
 
+    // IT IS WORKING FOR O(N) WHERE N IS THE CURRENTSIZE OF THE DATA STRUCTURE
     push(x) {
         s = q.size(); // Here we are storing size in s variable
         q.push(x);
@@ -502,18 +503,301 @@ Class Solution {
         }
     }
 
+    // IT IS WORKING FOR O(1)
     pop() {
         q.pop(); // Queue is already rearranged we just need to call pop here and it will remove the element
     }
 
+    // IT IS WORKING FOR O(1)
     top {
         return q.top();
     }
 
+    // IT IS WORKING FOR O(1)
     size() {
         return q.size();
     }
+    TIME COMPLEXITY:- O(N)
+    SPACE COMPLEXITY:- SPACE WILL BE DYNAMIC IN NATURE IT DEPENDS ON NUMBER OF ELEMENTS GIVEN TO YOU THE SPACE WILL BE VARIYING  
 }
 
 
-Implement Queue using Stack
+Implement Queue using Stack:-
+Here we have a Stack and we need to make sure that this Stack behaves like a Queue.
+
+push(4)
+push(2)
+push(3)
+push(5)
+top()
+pop()
+pop()
+push(6)
+top()
+
+We will be creating 2 stacks i.e. s1 and s2
+FOR PUSH:-
+- s1 -> s2
+- x -> s1
+- s2 -> s1
+
+push(4)
+First we will be transferring all the elements of s1 into the s2 and after that we will push element 4 into the s1 and after that all the elements of s2 will pe pointed into the s1.
+s1 -> s2
+s1 = 
+s2 = 
+x -> s1
+s1 = 4
+s2 = 
+s2 -> s1
+s1 = 4
+s2 =
+top = 4
+
+push(2)
+First we will be transferring all the elements of s1 into the s2 and after that we will push element 2 into the s1 and after that all the elements of s2 will pe pointed into the s1.
+s1 = 4
+s2 = 
+s1 -> s2
+s1 = 
+s2 = 4
+x -> s1
+s1 = 2
+s2 = 4
+s2 -> s1
+s1 = 2 4
+s2 =
+top = 4
+
+push(3)
+First we will be transferring all the elements of s1 into the s2 and after that we will push element 3 into the s1 and after that all the elements of s2 will pe pointed into the s1.
+s1 = 2 4
+s2 = 
+s1 -> s2
+s1 = 
+s2 = 4 2 
+x -> s1
+s1 = 3
+s2 = 4 2 
+s2 -> s1
+s1 = 3 2 4
+s2 =
+top = 4
+
+push(5)
+First we will be transferring all the elements of s1 into the s2 and after that we will push element 5 into the s1 and after that all the elements of s2 will pe pointed into the s1.
+s1 = 3 2 4
+s2 = 
+s1 -> s2
+s1 = 
+s2 = 4 2 3
+x -> s1
+s1 = 5
+s2 = 4 2 3
+s2 -> s1
+s1 = 5 3 2 4
+s2 =
+top = 4
+
+top()
+top = 4
+
+pop()
+For removing the elements we can do top = top - 1
+s1 = 5 3 2
+s2 = 
+
+pop()
+For removing the elements we can do top = top - 1
+s1 = 5 3 
+s2 = 
+
+push(6)
+First we will be transferring all the elements of s1 into the s2 and after that we will push element 6 into the s1 and after that all the elements of s2 will pe pointed into the s1.
+s1 = 5 3 
+s2 = 
+s1 -> s2
+s1 = 
+s2 = 3 5
+x -> s1
+s1 = 6
+s2 = 3 5
+s2 -> s1
+s1 = 6 5 3
+s2 = 
+top = 3
+
+top()
+top = 3
+
+CODE/IMPLEMENTATION:-
+class Solution {
+    Stack<Int> s1, s2; // HERE WE ARE CREATING TWO STACKS s1 and s2.
+
+    // IT IS WORKING FOR O(2N) AS WE ARE DOING s1 to s2 here and s2 to s1 here 
+    // FOR SPACE I M USING 2 * DYNAMIC SPACE BECAUSE WE ARE USING 2 STACKS
+    push(x) {
+        // TRANSFERRING ELEMENTS OF s1 into s2
+        while(s1.size()) {
+            s2.push(s1.top())
+            s1.pop()
+        }
+        PUSHING THE ELEMENT INTO THE S1
+        s1.push(x);
+        // TRANSFERRING ELEMENTS OF s2 into s1 
+        while(s2.size()) {
+            s1.push(s2.top())
+            s2.pop()
+        }
+    }
+
+    // IT IS WORKING O(1)
+    pop() {
+        return s1.pop()
+    }
+
+    top() {
+        return s1.top()
+    }
+
+    size() {
+        return s1.size()
+    }
+}
+
+HERE IF PUSH OPERATION ARE MORE THEN IT WILL TAKE LOT OF TIME FOR PUSHING THE ELEMENT SO WE WILL TAKE ANOTHER APPROACH FOR THIS.
+
+ANOTHER APPROACH :-
+HERE WE WILL MAKE PUSH OPERATION EASIER AND TOP POP OPERATION MORE EXPENSIVE.
+
+push(2)
+push(3)
+push(4)
+push(5)
+top
+top
+pop
+push(1)
+pop
+pop
+pop
+top
+pop
+
+We will be creating 2 stacks i.e. s1 and s2
+push(2)
+here we will push element 2 into the s1
+s1 = 2
+s2 = 
+
+push(3)
+here we will push element 3 into the s1
+s1 = 2 3
+s2 = 
+
+push(4)
+here we will push element 4 into the s1
+s1 = 2 3 4
+s2 = 
+
+push(5)
+here we will push element 5 into the s1
+s1 = 2 3 4 5
+s2 = 
+
+top()
+If we need to find top then we will transfer all the elements of s1 into s2 and after that we will give the top from the s2
+s1 = 
+s2 = 5 4 3 2
+top = 2
+
+top() 
+top = 2
+
+pop()
+If s2 has some element in the queue then we will remove the top of that element
+s1 = 
+s2 = 5 4 3
+top = 3
+
+push(1)
+here we will push the element 1 into the s1
+s1 = 1
+s2 = 5 4 3
+
+pop()
+If s2 has some element in the queue then we will remove the top of that element
+s1 = 1
+s2 = 5 4
+top = 4
+
+pop()
+If s2 has some element in the queue then we will remove the top of that element
+s1 = 1
+s2 = 5
+top = 5
+
+pop()
+If s2 has some element in the queue then we will remove the top of that element
+s1 = 1
+s2 = 
+top = -1
+
+top()
+If we need to find top then we will transfer all the elements of s1 into s2 and after that we will give the top from the s2
+s1 = 
+s2 = 1
+top = 1
+
+pop() 
+If s2 has some element in the queue then we will remove the top of that element
+s1 = 
+s2 = 
+top = -1
+
+CODE / IMPLEMENTATION:-
+Class Solution {
+    Stack<Int> s1, s2;
+    
+    // IT TAKES TIME COMPLEXITY OF O(1)
+    push(x) {
+        s1.push(x);
+    }
+
+    // IT TAKES TIME COMPLEXITY OF O(N) AS WE ARE TRANSFERRING ELEMENTS FROM s1 TO s2 
+    pop() {
+        // IF s2 STACK HAS SOME ELEMENT THEN WE WILL REMOVE THE FIRST OR TOP OF THAT ELEMENT
+        if(s2.empty() != 0)
+            s2.pop();
+        else {
+            while(s1.size()) {
+                s2.push(s1.top());
+                s2.pop();
+            s2.pop(); // POP THE FIRST ELEMENT INTO THE QUEUE
+            }
+        }
+    }
+
+    // IT TAKES TIME COMPLEXITY OF O(N) AS WE ARE TRANSFERRING ELEMENTS FROM s1 TO s2 
+    top() {
+        if(s2.empty() != 0)
+            return s2.top();
+        else {
+            while(s1.size()) {
+                s2.push(s1.top());
+                s1.pop();
+            }
+            return s2.top();
+        }
+    }
+
+    size() {
+        return s2.size();
+    }
+
+    OVERALL SPACE COMPLEXITY IS I M USING 2 * DYNAMIC SPACE BECAUSE WE ARE USING 2 STACKS
+}
+
+
+
+
