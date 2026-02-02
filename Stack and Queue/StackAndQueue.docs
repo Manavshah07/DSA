@@ -430,5 +430,90 @@ class Solution {
 
 
 Implement Stack using Queue
+Here we have a Queue and we need to make sure that this Queue behaves like a stack.
+
+push(4)
+push(9)
+push(2)
+push(5)
+top
+pop
+pop
+top
+push(1)
+top
+
+push(4)
+Here we have push element 4 and according to the stack my top = 4 and as it is has only one element so my top will be 4
+top = 4
+            4
+
+push(9)
+            4  9
+Here we have push element 9 but according to queue my top is 4 but as per stack we want our top as 9 as it follow LIFO operations. So whatever elements are before 9 we will pick it up and place it after 9.
+               9  4
+top = 9
+
+push(2)
+            9  4  2
+Here we have push element 2 but according to queue my top is 9 but as per stack we want our top as 2 as it follow LIFO operations. So whatever elements are before 2 we will pick it up and place it after 2.
+                  2  9  4 
+top = 2
+
+push(5)
+            2  9  4  5     
+Here we have push element 5 but according to queue my top is 2 but as per stack we want our top as 5 as it follow LIFO operations. So whatever elements are before 5 we will pick it up and place it after 5.
+               5  2  9  4
+top = 5
+
+pop()
+Here it will remove the element where top is present i.e. element 5 and we will move top to the next element
+                  2  9  4
+
+pop()
+Here it will remove the element where top is present i.e. element 2 and we will move top to the next element
+                     9  4
+
+top()
+Here my top is 9 as it is the latest element
+
+push(1)
+                    9  4  1
+Here we have push element 1 but according to queue my top is 9 but as per stack we want our top as 1 as it follow LIFO operations. So whatever elements are before 1 we will pick it up and place it after 1.
+                       1  9  4
+top = 1
+
+top()
+Here my top is 1 as it is the latest element
+
+
+CODE/IMPLEMENTATION:-
+Class Solution {
+    queue<int> q; // HERE I HAVE DEFINED A QUEUE DS
+
+    push(x) {
+        s = q.size(); // Here we are storing size in s variable
+        q.push(x);
+
+        for(i = 1; i<s; i++) {
+            // HERE IT WILL PUSH THE LATEST ELEMENT AT START AND REARRANGE IT IN PROPER ORDER
+            q.push(q.top());
+            q.pop();
+        }
+    }
+
+    pop() {
+        q.pop(); // Queue is already rearranged we just need to call pop here and it will remove the element
+    }
+
+    top {
+        return q.top();
+    }
+
+    size() {
+        return q.size();
+    }
+}
+
 
 Implement Queue using Stack
