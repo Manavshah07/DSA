@@ -41,3 +41,46 @@ class Solution {
             return list.get(0);
     }
 }
+
+// OPTIMISED APPROACH WITH TIME COMPLEXITY AS O(nlogn) AND SPACE COMPLEXITY AS
+// O(n)
+
+/**
+ * ARR=[2 7 4 1 8 1]
+ * HERE WE WILL USE HEAP AND MAX HEAP FOR THE OPTMISED APPROACH
+ * WE WILL CREATE A MAX HEAP AND AT START WE WILL ADD THE ELEMENT IN THE MAX
+ * HEAP
+ * WHENEVER WE POP FROM MAX HEAP IT WILL ALWAYS GIVE MAXIMUM ELEMENTS
+ * FIRST WE POP X = 8, AND AFTER THAT Y = 7
+ * AFTER THIS IF X != Y THEN WE WILL DO X-Y AND PUSH THE ANSWER OF X-Y INTO THE
+ * MAX HEAP
+ * THIS WILL CONTINUE TILL MY MAX HEAP HAS ONLY ONE ELEMENT OR NO ELEMENT
+ */
+
+class Solution2 {
+    public int lastStoneWeight(int[] stones) {
+        // MAX HEAP
+        // IF WE DON't WRITE Collections.reverseOrder() THEN IT WORK AS MIN HEAP
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+
+        // ADDING ALL STONES
+        for (int i = 0; i < stones.length; i++) {
+            pq.add(stones[i]);
+        }
+
+        // HERE WHILE LOOP RUNS FOR N TIMES & POP/PUSH OPERATION RUNS FOR logN TIMES
+        while (pq.size() > 1) {
+            int x = pq.poll(); // REMOVING LARGEST
+            // pq.poll();
+            int y = pq.poll(); // REMOVING SECOND LARGEST
+            // pq.poll();
+
+            if (x != y)
+                pq.add(Math.abs(x - y));
+        }
+        if (pq.size() == 0)
+            return 0;
+        else
+            return pq.peek();
+    }
+}
