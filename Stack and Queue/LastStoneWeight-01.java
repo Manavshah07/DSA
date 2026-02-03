@@ -1,6 +1,6 @@
 // Question Link:- https://leetcode.com/problems/last-stone-weight/description/
 
-// BRUTE FORCE APPROACH WITH O(n² log n) 
+// BRUTE FORCE APPROACH WITH TIME COMPLEXITY AS O(n² log n) AND SPACE COMPLEXITY AS O(N) 
 import java.util.*;
 
 class Solution {
