@@ -30,23 +30,23 @@ class Solution {
 
 // OPTIMISED APPROACH WITH TIME COMPLEXITY AS O(N) AND SPACE COMPLEXITY AS O(1)
 // AS NO EXTRA SPACE HAS BEEN USED
-// class Solution {
-// public int maxArea(int[] height) {
-// int ans = 0;
-// int left = 0;
-// int right = height.length - 1;
+class Solution2 {
+    public int maxArea(int[] height) {
+        int ans = 0;
+        int left = 0;
+        int right = height.length - 1;
 
-// while(left < right) {
-// // HERE WE ARE CALCUALTING MINIMUM OF LEFT & RIGHT AS WATER SHOULD NOT BE
-// OVERFLOW AND AFTER THAT WE ARE DO RIGHT - LEFT TO CALCULATE THE DISTANCE
-// BETWEEN LEFT & RIGHT
-// ans = Math.max(ans, Math.min(height[left], height[right]) * (right-left));
+        while (left < right) {
+            // HERE WE ARE CALCUALTING MINIMUM OF LEFT & RIGHT AS WATER SHOULD NOT BE
+            // OVERFLOW AND AFTER THAT WE ARE DO RIGHT - LEFT TO CALCULATE THE DISTANCE
+            // BETWEEN LEFT & RIGHT
+            ans = Math.max(ans, Math.min(height[left], height[right]) * (right - left));
 
-// if(height[left] <= height[right])
-// left++;
-// else
-// right--;
-// }
-// return ans;
-// }
-// }
+            if (height[left] <= height[right])
+                left++;
+            else
+                right--;
+        }
+        return ans;
+    }
+}
