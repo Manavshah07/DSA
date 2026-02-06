@@ -27,35 +27,35 @@ class Solution {
 
 // OPTIMAL APPROACH:- TIME COMPLEXITY:-O(N) AND SPACE COMPLEXITY:- O(1) BECAUSE
 // ONLY 2 KEYS MAX
-// class Solution {
-// public int totalFruit(int[] fruits) {
-// int n = fruits.length;
-// int i = 0, j = 0;
-// int ans = 0;
+class Solution2 {
+    public int totalFruit(int[] fruits) {
+        int n = fruits.length;
+        int i = 0, j = 0;
+        int ans = 0;
 
-// HashMap<Integer, Integer> hmap = new HashMap<>();
+        HashMap<Integer, Integer> hmap = new HashMap<>();
 
-// while (j < n) {
+        while (j < n) {
 
-// // EXPAND WINDOW, STORING THE NUMBER & ITS COUNT INTO HASHMAP
-// hmap.put(fruits[j], hmap.getOrDefault(fruits[j], 0) + 1);
+            // EXPAND WINDOW, STORING THE NUMBER & ITS COUNT INTO HASHMAP
+            hmap.put(fruits[j], hmap.getOrDefault(fruits[j], 0) + 1);
 
-// // IF SIZE > 2, THEN REMOVE ELEMENTS FROM START I.E. FROM ITH INDEX
-// while (hmap.size() > 2) {
-// hmap.put(fruits[i], hmap.get(fruits[i]) - 1);
+            // IF SIZE > 2, THEN REMOVE ELEMENTS FROM START I.E. FROM ITH INDEX
+            while (hmap.size() > 2) {
+                hmap.put(fruits[i], hmap.get(fruits[i]) - 1);
 
-// // IF MY COUNT COMES TO 0 THEN WE ARE REMOVING THAT NUMBER
-// if (hmap.get(fruits[i]) == 0) {
-// hmap.remove(fruits[i]);
-// }
-// i++;
-// }
+                // IF MY COUNT COMES TO 0 THEN WE ARE REMOVING THAT NUMBER
+                if (hmap.get(fruits[i]) == 0) {
+                    hmap.remove(fruits[i]);
+                }
+                i++;
+            }
 
-// // UPDATING THE ANSWER (<= 2 types)
-// ans = Math.max(ans, j - i + 1);
+            // UPDATING THE ANSWER (<= 2 types)
+            ans = Math.max(ans, j - i + 1);
 
-// j++;
-// }
-// return ans;
-// }
-// }
+            j++;
+        }
+        return ans;
+    }
+}
