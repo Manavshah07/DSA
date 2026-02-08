@@ -47,35 +47,33 @@ class Solution {
 }
 
 // OPTIMAL APPROACH WITH TIME COMPLEXITY AS O(2K) AND SPACE COMPLEXITY AS O(1)
-// class Solution {
-// public int maxScore(int[] cardPoints, int k) {
-// int n = cardPoints.length;
-// int leftSum = 0, rightSum = 0, maxLength = 0;
+class Solution2 {
+    public int maxScore(int[] cardPoints, int k) {
+        int n = cardPoints.length;
+        int leftSum = 0, rightSum = 0, maxLength = 0;
 
-// // Eg:- arr = [6 2 3 4 7 2 1 7 1] K = 4
+        // Eg:- arr = [6 2 3 4 7 2 1 7 1] K = 4
 
-// // HERE WE HAVE ADDED ALL THE ELEMENTS FROM START TILL K
-// // THIS TAKES TIME COMPLEXITY OF O(K)
-// for (int i = 0; i < k; i++) {
-// leftSum += cardPoints[i];
-// maxLength = leftSum;
-// }
+        // HERE WE HAVE ADDED ALL THE ELEMENTS FROM START TILL K
+        // THIS TAKES TIME COMPLEXITY OF O(K)
+        for (int i = 0; i < k; i++) {
+            leftSum += cardPoints[i];
+            maxLength = leftSum;
+        }
 
-// // HERE WE WILL REMOVE ALL THE ELEMENTS FROM K-1 TILL THE START ELEMENT LIKE
-// // FIRST WE WILL REMOVE K-1TH INDEX THEN K-2 THEN K-3 AND K-4
-// // AS WE START REMOVE ELEMENT FROM K-1 AFTER THAT WE WILL ALSO ADD THE
-// ELEMENTS
-// // FROM END I.E. FROM N-1
-// // THIS TAKES TIME COMPLEXITY OF O(K)
-// int rightIndex = n - 1;
-// for (int i = k - 1; i >= 0; i--) {
-// leftSum = leftSum - cardPoints[i];
-// rightSum += cardPoints[rightIndex];
-// rightIndex = rightIndex - 1; // HERE RIGHTINDEX SHOULD BE DECREMENTED AS WE
-// NEED TO EXPLORE OTHER NUMBERS
-// // ALSO
-// maxLength = Math.max(maxLength, leftSum + rightSum);
-// }
-// return maxLength;
-// }
-// }
+        // HERE WE WILL REMOVE ALL THE ELEMENTS FROM K-1 TILL THE START ELEMENT LIKE
+        // FIRST WE WILL REMOVE K-1TH INDEX THEN K-2 THEN K-3 AND K-4
+        // AS WE START REMOVE ELEMENT FROM K-1 AFTER THAT WE WILL ALSO ADD THE ELEMENTS
+        // FROM END I.E. FROM N-1
+        // THIS TAKES TIME COMPLEXITY OF O(K)
+        int rightIndex = n - 1;
+        for (int i = k - 1; i >= 0; i--) {
+            leftSum = leftSum - cardPoints[i];
+            rightSum += cardPoints[rightIndex];
+            rightIndex = rightIndex - 1; // HERE RIGHTINDEX SHOULD BE DECREMENTED AS WE NEED TO EXPLORE OTHER NUMBERS
+                                         // ALSO
+            maxLength = Math.max(maxLength, leftSum + rightSum);
+        }
+        return maxLength;
+    }
+}
