@@ -82,18 +82,17 @@ class Solution2 {
         while (j < s.length()) {
             char ch = s.charAt(j);
 
-// IF HMAP HAS THE CHARACTER WHICH IS PRESENT IN STRING T AND AFTER THAT WE ARE
-// CHECKING THAT CHARACTER FREQUENCY IS GREATER THAN 0 THEN WE ARE INCREASING
-// THE COUNT AND DECREMENTING ITS FREQUENCY FROM THE MAP
-if (hmap.containsKey(ch)) {
-if (hmap.get(ch) > 0)
-count += 1;
-hmap.put(ch, hmap.get(ch) - 1);
-}
+            // IF HMAP HAS THE CHARACTER WHICH IS PRESENT IN STRING T AND AFTER THAT WE ARE
+            // CHECKING THAT CHARACTER FREQUENCY IS GREATER THAN 0 THEN WE ARE INCREASING
+            // THE COUNT AND DECREMENTING ITS FREQUENCY FROM THE MAP
+            if (hmap.containsKey(ch)) {
+                if (hmap.get(ch) > 0)
+                    count += 1;
+                hmap.put(ch, hmap.get(ch) - 1);
+            }
 
 // IF MY COUNT IS EQUAL TO STRING T LENGTH THEN WE WILL CALCULATE MINLENGTH
-// TIME COMPLEXITY FOR THIS LOOP IS O(N) AND THIS WILL RUN IN MAXIMUM WORST
-CASE
+// TIME COMPLEXITY FOR THIS LOOP IS O(N) AND THIS WILL RUN IN MAXIMUM WORST CASE
 while (count == m) {
 if (j - i + 1 < minLength) {
 minLength = j - i + 1;
