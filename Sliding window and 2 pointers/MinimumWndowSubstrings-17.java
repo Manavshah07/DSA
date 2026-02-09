@@ -91,14 +91,14 @@ class Solution2 {
                 hmap.put(ch, hmap.get(ch) - 1);
             }
 
-// IF MY COUNT IS EQUAL TO STRING T LENGTH THEN WE WILL CALCULATE MINLENGTH
-// TIME COMPLEXITY FOR THIS LOOP IS O(N) AND THIS WILL RUN IN MAXIMUM WORST CASE
-while (count == m) {
-if (j - i + 1 < minLength) {
-minLength = j - i + 1;
-// WE USED STARTINDEX TO CALCUATE THE MINIMUM STRING
-startIndex = i;
-}
+            // IF MY COUNT IS EQUAL TO STRING T LENGTH THEN WE WILL CALCULATE MINLENGTH
+            // TIME COMPLEXITY FOR THIS LOOP IS O(N) AND THIS WILL RUN IN MAXIMUM WORST CASE
+            while (count == m) {
+                if (j - i + 1 < minLength) {
+                    minLength = j - i + 1;
+                    // WE USED STARTINDEX TO CALCUATE THE MINIMUM STRING
+                    startIndex = i;
+                }
 
 // HERE WE ARE CALCULATING FOR ITH INDEX POSITION
 char leftChar = s.charAt(i);
