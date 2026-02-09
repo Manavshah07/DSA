@@ -63,7 +63,7 @@ class Solution {
 // AS O(256)
 class Solution2 {
     public String minWindow(String s, String t) {
-        int n = s.length();
+        // int n = s.length();
         int m = t.length();
         int minLength = Integer.MAX_VALUE;
         int startIndex = -1;
