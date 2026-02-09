@@ -100,25 +100,23 @@ class Solution2 {
                     startIndex = i;
                 }
 
-// HERE WE ARE CALCULATING FOR ITH INDEX POSITION
-char leftChar = s.charAt(i);
-// IF MY CHARACTER CONTAINS IN HASHMAP THEN WE NEED DO ALL THE CALCULATIONS
-THAT
-// ARE THEIR PREVIOUSLY SO WE ARE JUST INCREASING THE FREQUENCY OF THAT
-// CHARACTER AND AFTER THAT IF ITS FREQUENCT IS GREATER THAN 0 SO WE ARE
-DOING
-// COUNT-- AS WE SHRINKING OUR WINDOW SO WE WILL REMOVE THAT CHARACTER
-if (hmap.containsKey(leftChar)) {
-hmap.put(leftChar, hmap.get(leftChar) + 1);
-if (hmap.get(leftChar) > 0)
-count--;
-}
-i++;
-}
-j++;
-}
-if (startIndex == -1)
-return "";
-return s.substring(startIndex, startIndex + minLength);
-}
+                // HERE WE ARE CALCULATING FOR ITH INDEX POSITION
+                char leftChar = s.charAt(i);
+                // IF MY CHARACTER CONTAINS IN HASHMAP THEN WE NEED DO ALL THE CALCULATION THAT
+                // ARE THEIR PREVIOUSLY SO WE ARE JUST INCREASING THE FREQUENCY OF THAT
+                // CHARACTER AND AFTER THAT IF ITS FREQUENCT IS GREATER THAN 0 SO WE ARE DOING
+                // COUNT-- AS WE SHRINKING OUR WINDOW SO WE WILL REMOVE THAT CHARACTER
+                if (hmap.containsKey(leftChar)) {
+                    hmap.put(leftChar, hmap.get(leftChar) + 1);
+                    if (hmap.get(leftChar) > 0)
+                        count--;
+                }
+                i++;
+            }
+            j++;
+        }
+        if (startIndex == -1)
+            return "";
+        return s.substring(startIndex, startIndex + minLength);
+    }
 }
