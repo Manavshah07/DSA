@@ -35,7 +35,7 @@ class Solution2 {
                 count += hmap.get(pair);
 
             hmap.put(arr[i], hmap.getOrDefault(arr[i], 0) + 1);
-            jhdhjsdjas
+            jh
         }
         return count;
     }
