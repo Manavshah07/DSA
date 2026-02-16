@@ -4,7 +4,7 @@
 // BRUTE FORCE APPROACH WITH TIME COMPLEXITY AS O(N^2) AND SPACE COMPLEXITY AS
 // O(1)
 
-// OPTIMAL APPROACH WITH TIME COMPLEXITY AS O(N)
+// OPTIMAL APPROACH WITH TIME COMPLEXITY AS O(N) AND SPACE
 class Solution2 {
     public int timeRequiredToBuy(int[] tickets, int k) {
         int time = 0;
