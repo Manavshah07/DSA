@@ -1,6 +1,6 @@
 // Question Link:- https://leetcode.com/problems/time-needed-to-buy-tickets/description/
 
-// APPROACH WITH TIME COMPLEXITY AS O(N * MAXTICKET(i)) WHICH IS O(N * M) AND SPACE COMPLEXITY IS O(N) AS WE ARE USING QUEUE
+// BRUTE FORCE APPROACH WITH TIME COMPLEXITY AS O(N * MAXTICKET(i)) WHICH IS O(N * M) AND SPACE COMPLEXITY IS O(N) AS WE ARE USING QUEUE
 import java.util.*;
 
 class Solution {
