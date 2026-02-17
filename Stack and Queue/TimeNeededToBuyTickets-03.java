@@ -4,6 +4,8 @@
 // BRUTE FORCE APPROACH WITH TIME COMPLEXITY AS O(N^2) AND SPACE COMPLEXITY AS O(1)
 
 // APPROACH WITH TIME COMPLEXITY AS O(N * MAXTICKET(i)) WHICH IS O(N * M) AND SPACE COMPLEXITY IS O(N) AS WE ARE USING QUEUE
+import java.util.*;
+
 class Solution {
     public int timeRequiredToBuy(int[] tickets, int k) {
         Queue<Integer> q = new LinkedList<>();
