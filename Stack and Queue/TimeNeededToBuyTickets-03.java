@@ -37,7 +37,7 @@ class Solution {
 }
 
 // OPTIMAL APPROACH WITH TIME COMPLEXITY AS O(N) AND SPACE COMPLEXITY AS O(N)
-class Solution {
+class Solution2 {
     public int timeRequiredToBuy(int[] tickets, int k) {
         int timeNeeded = 0;
 
