@@ -37,3 +37,25 @@ class Solution {
 }
 
 // OPTIMAL APPROACH WITH TIME COMPLEXITY AS O(N) AND SPACE COMPLEXITY AS O(N)
+class Solution {
+    public int timeRequiredToBuy(int[] tickets, int k) {
+        int timeNeeded = 0;
+
+        /**
+         * Eg:- 2 3 4 3 2 1 K = 3(index)
+         */
+        for (int i = 0; i < tickets.length; i++) {
+            if (i <= k) {
+                // HERE THE ELEMENT LESS THEN K I.E. BEFORE INDEX 3 WILL SUBTRACT TILL K TIMES
+                // People before or at k will buy up to tickets[k] times
+                timeNeeded = timeNeeded + Math.min(tickets[i], tickets[k]);
+            } else {
+                // HERE THE ELEMENT GREATER THEN K I.E. AFTER INDEX 3 WILL SUBTRACT TILL K - 1
+                // TIMES
+                // People after k will buy up to tickets[k] - 1 times
+                timeNeeded = timeNeeded + Math.min(tickets[i], tickets[k] - 1);
+            }
+        }
+        return timeNeeded;
+    }
+}
