@@ -29,4 +29,11 @@ class Solution {
  * ORDER I.E. INCREASING ORDER OR DECREASING ORDER.
  */
 
+/**
+ *              4  12  5  3  1  2  5  3  1  2  4   6
+ * new array => 12 -1  6  5  2  5  6  4  2  4  6  -1
+ * 
+ * (HERE WE ARE STORING ELEMENTS IN DECREASING ORDER IN THE MONOTONIC STACK)
+ */
+
 // OPTIMISED APPROACH
