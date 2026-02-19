@@ -1,3 +1,2 @@
-public class LargestRectangleInHistogram-05 {
-    
-}
+// Question Link:-
+// https://leetcode.com/problems/largest-rectangle-in-histogram/description/
